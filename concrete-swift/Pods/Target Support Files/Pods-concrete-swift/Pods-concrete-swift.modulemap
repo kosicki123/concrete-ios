@@ -1,0 +1,6 @@
+framework module Pods_concrete_swift {
+  umbrella header "Pods-concrete-swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
