@@ -11,7 +11,10 @@ import UIKit
 class ShotListViewController: UIViewController {
     var shotList: [Shot] = []
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }
 
 //MARK:- CollectionViewDataSource
