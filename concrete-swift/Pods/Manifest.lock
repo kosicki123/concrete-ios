@@ -1,18 +1,25 @@
 PODS:
-  - Alamofire (2.0.2)
-  - Genome (1.0)
+  - Alamofire (3.0.0-beta.3)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
 
 DEPENDENCIES:
-  - Alamofire
-  - Genome
+  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, tag `3.0.0-beta.3`)
   - SDWebImage
 
+EXTERNAL SOURCES:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire.git
+    :tag: 3.0.0-beta.3
+
+CHECKOUT OPTIONS:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire.git
+    :tag: 3.0.0-beta.3
+
 SPEC CHECKSUMS:
-  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  Genome: e5b91fb270783aa638932015d379a2af8c5454a9
+  Alamofire: c89149e58431f6f94527e8c01f920456afe39bd0
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
 
 COCOAPODS: 0.38.2
