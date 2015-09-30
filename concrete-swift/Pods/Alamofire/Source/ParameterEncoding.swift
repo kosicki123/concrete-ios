@@ -212,8 +212,6 @@ public enum ParameterEncoding {
         let allowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
         allowedCharacterSet.removeCharactersInString(generalDelimitersToEncode + subDelimitersToEncode)
 
-        var escaped = ""
-
         //==========================================================================================================
         //
         //  Batching is required for escaping due to an internal bug in iOS 8.1 and 8.2. Encoding more than a few
@@ -225,23 +223,21 @@ public enum ParameterEncoding {
         //
         //==========================================================================================================
 
-        if #available(iOS 8.3, OSX 10.10, *) {
-            escaped = string.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? string
-        } else {
-            let batchSize = 50
-            var index = string.startIndex
+        let batchSize = 50
+        var index = string.startIndex
 
-            while index != string.endIndex {
-                let startIndex = index
-                let endIndex = index.advancedBy(batchSize, limit: string.endIndex)
-                let range = Range(start: startIndex, end: endIndex)
+        var escaped = ""
 
-                let substring = string.substringWithRange(range)
+        while index != string.endIndex {
+            let startIndex = index
+            let endIndex = index.advancedBy(batchSize, limit: string.endIndex)
+            let range = Range(start: startIndex, end: endIndex)
 
-                escaped += substring.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? substring
+            let substring = string.substringWithRange(range)
 
-                index = endIndex
-            }
+            escaped += substring.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet) ?? substring
+
+            index = endIndex
         }
 
         return escaped
