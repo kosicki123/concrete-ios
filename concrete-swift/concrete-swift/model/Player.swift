@@ -7,23 +7,15 @@
 //
 
 import Foundation
-import AlamofireObjectMapper
-import ObjectMapper
 
-class Player: Mappable {
-    var id: Int?
-    var name: String?
-    var avatarUrl: String?
+final class Player: ResponseObjectSerializable {
+    var id: Int
+    var name: String
+    var avatarUrl: String
     
-    required init?(_ map: Map) {
-//        id = representation.valueForKeyPath("id") as! Int
-//        name = representation.valueForKeyPath("name") as! String
-//        avatarUrl = representation.valueForKeyPath("avatar_url") as! String
-    }
-    
-    func mapping(map: Map) {
-        id <- map["id"] 
-        name <- map["name"]
-        avatarUrl <- map["avatar_url"]
+    required init?(response: NSHTTPURLResponse, representation: AnyObject) {
+        id = representation.valueForKeyPath("id") as! Int
+        name = representation.valueForKeyPath("name") as! String
+        avatarUrl = representation.valueForKeyPath("avatar_url") as! String
     }
 }
