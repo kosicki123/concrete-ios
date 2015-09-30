@@ -9,11 +9,19 @@
 import UIKit
 
 class ShotListViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+
     var shotList: [Shot] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        requestData()
+    }
+    
+    func requestData() {
+        ShotStore.getShots { (shots, error) -> () in
+            
+        }
     }
 }
 

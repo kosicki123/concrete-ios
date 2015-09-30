@@ -7,21 +7,36 @@
 //
 
 import Foundation
+import AlamofireObjectMapper
+import ObjectMapper
 
-final class Shot: ResponseObjectSerializable, ResponseCollectionSerializable {
-    var title: String
-    var image: String
+class Shot: Mappable {
+    var id: Int?
+    var title: String?
+    var description: String?
+    var likesCount: Int?
+    var commentsCount: Int?
+    var imageUrl: String?
+    var player: Player?
     
-    required init?(response: NSHTTPURLResponse, representation: AnyObject) {
-        title = representation.valueForKeyPath("title") as! String
-        image = representation.valueForKeyPath("images.poster.thumb") as! String
+    required init?(_ map: Map) {
+        
+//        id = representation.valueForKeyPath("id") as! Int
+//        title = representation.valueForKeyPath("title") as! String
+//        description = representation.valueForKeyPath("description") as! String
+//        likesCount = representation.valueForKeyPath("likes_count") as! Int
+//        commentsCount = representation.valueForKeyPath("comments_count") as! Int
+//        imageUrl = representation.valueForKeyPath("image_url") as! String
+//        player = Player(response:response, representation: representation.valueForKeyPath("player")!)!
     }
     
-    class func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> Array<Shot> {
-        let shotArray = representation as! [AnyObject]
-        
-        return shotArray.map({
-            Shot(response:response, representation: $0)!
-        })
+    func mapping(map: Map) {
+        id <- map["id"]
+        title <- map["title"]
+        description <- map["description"]
+        likesCount <- map["likes_count"]
+        commentsCount <- map["comments_count"]
+        imageUrl <- map["image_url"]
+        player <- map["player"]
     }
 }

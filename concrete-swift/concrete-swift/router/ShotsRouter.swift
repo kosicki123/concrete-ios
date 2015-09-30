@@ -24,7 +24,7 @@ enum ShotsRouter: URLRequestConvertible {
                     perPage = 50
                 }
                 
-                return (.GET, "/shots/popular", ["limit": "\(perPage)"])
+                return (.GET, "/shots/popular", nil)
             }
         }()
         

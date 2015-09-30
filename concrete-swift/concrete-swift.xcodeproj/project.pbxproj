@@ -19,10 +19,9 @@
 		1677CC821BBB247F0052CA71 /* ShotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC811BBB247F0052CA71 /* ShotListViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1677CC841BBB248D0052CA71 /* ShotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC831BBB248D0052CA71 /* ShotDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1677CC861BBB24F10052CA71 /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC851BBB24F10052CA71 /* Shot.swift */; settings = {ASSET_TAGS = (); }; };
-		1677CC881BBB26030052CA71 /* ResponseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC871BBB26030052CA71 /* ResponseObjectSerializable.swift */; settings = {ASSET_TAGS = (); }; };
-		1677CC8A1BBB260E0052CA71 /* ResponseCollectionSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC891BBB260E0052CA71 /* ResponseCollectionSerializable.swift */; settings = {ASSET_TAGS = (); }; };
 		1677CC8D1BBB2E290052CA71 /* ShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC8C1BBB2E290052CA71 /* ShotCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		1677CC8F1BBB2FED0052CA71 /* ShotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC8E1BBB2FED0052CA71 /* ShotStore.swift */; settings = {ASSET_TAGS = (); }; };
+		1677CC911BBC14CB0052CA71 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677CC901BBC14CB0052CA71 /* Player.swift */; settings = {ASSET_TAGS = (); }; };
 		3EF12A5DCF08173BECD6CF46 /* Pods_concrete_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E47E0637B585565E530313 /* Pods_concrete_swift.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -62,10 +61,9 @@
 		1677CC811BBB247F0052CA71 /* ShotListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotListViewController.swift; sourceTree = "<group>"; };
 		1677CC831BBB248D0052CA71 /* ShotDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotDetailViewController.swift; sourceTree = "<group>"; };
 		1677CC851BBB24F10052CA71 /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
-		1677CC871BBB26030052CA71 /* ResponseObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjectSerializable.swift; sourceTree = "<group>"; };
-		1677CC891BBB260E0052CA71 /* ResponseCollectionSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseCollectionSerializable.swift; sourceTree = "<group>"; };
 		1677CC8C1BBB2E290052CA71 /* ShotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotCollectionViewCell.swift; sourceTree = "<group>"; };
 		1677CC8E1BBB2FED0052CA71 /* ShotStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotStore.swift; sourceTree = "<group>"; };
+		1677CC901BBC14CB0052CA71 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8DAB59FC64E54A7B1F8874C5 /* Pods-concrete-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concrete-swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-concrete-swift/Pods-concrete-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		95E47E0637B585565E530313 /* Pods_concrete_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_concrete_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AA4BFBAD4F73179A631880 /* Pods-concrete-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-concrete-swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-concrete-swift/Pods-concrete-swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				1677CC851BBB24F10052CA71 /* Shot.swift */,
+				1677CC901BBC14CB0052CA71 /* Player.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -184,8 +183,6 @@
 		1677CC751BBB17D90052CA71 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
-				1677CC871BBB26030052CA71 /* ResponseObjectSerializable.swift */,
-				1677CC891BBB260E0052CA71 /* ResponseCollectionSerializable.swift */,
 			);
 			path = vendor;
 			sourceTree = "<group>";
@@ -430,10 +427,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1677CC8A1BBB260E0052CA71 /* ResponseCollectionSerializable.swift in Sources */,
-				1677CC881BBB26030052CA71 /* ResponseObjectSerializable.swift in Sources */,
 				1677CC8F1BBB2FED0052CA71 /* ShotStore.swift in Sources */,
 				1677CC8D1BBB2E290052CA71 /* ShotCollectionViewCell.swift in Sources */,
+				1677CC911BBC14CB0052CA71 /* Player.swift in Sources */,
 				1677CC791BBB18CB0052CA71 /* ShotsRouter.swift in Sources */,
 				1677CC7B1BBB1A1B0052CA71 /* BaseRouter.swift in Sources */,
 				1677CC451BBB12640052CA71 /* AppDelegate.swift in Sources */,
