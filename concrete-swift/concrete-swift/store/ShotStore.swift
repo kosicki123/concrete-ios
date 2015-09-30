@@ -10,15 +10,14 @@ import Foundation
 import Alamofire
 
 class ShotStore: NSObject {
-    static func getShots(callback: (shots: [Shot]?, error: ErrorType?) ->()) {
-        request(ShotsRouter.PopularShots()).responseCollection { (request, response, shots: [Shot]?, error) in
-            print(shots)
-            
-            if let error = error {
-                return callback(shots: nil, error: error);
-            }
-            
-            return callback(shots: shots, error: nil)
+    static func getShots(callback: (shots: [Shot]?, error: NSError?) ->()) {
+        request(ShotsRouter.PopularShots()).responseCollection { (response: Response<[Shot], NSError>) in
+//
+//            if let error = error {
+//                return callback(shots: nil, error: error);
+//            }
+            print(response)
+            return callback(shots: nil, error: nil)
         }
     }
 }

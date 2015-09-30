@@ -17,7 +17,7 @@ class ShotCollectionViewCell: UICollectionViewCell {
     var shot: Shot! {
         didSet {
             titleLabel.text = shot!.title
-            thumbnailImageView.sd_setImageWithURL(NSURL(string: shot!.imageUrl!))
+            thumbnailImageView.sd_setImageWithURL(NSURL(string: shot!.imageUrl))
         }
     }
 }
