@@ -20,7 +20,8 @@ class ShotListViewController: UIViewController {
     
     func requestData() {
         ShotStore.getShots { (shots, error) -> () in
-            
+            print(error)
+            print(shots)
         }
     }
 }

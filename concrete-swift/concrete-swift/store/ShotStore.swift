@@ -12,12 +12,7 @@ import Alamofire
 class ShotStore: NSObject {
     static func getShots(callback: (shots: [Shot]?, error: NSError?) ->()) {
         request(ShotsRouter.PopularShots()).responseCollection { (response: Response<[Shot], NSError>) in
-//
-//            if let error = error {
-//                return callback(shots: nil, error: error);
-//            }
-            print(response)
-            return callback(shots: nil, error: nil)
+            return callback(shots: response.result.value, error: response.result.error)
         }
     }
 }
