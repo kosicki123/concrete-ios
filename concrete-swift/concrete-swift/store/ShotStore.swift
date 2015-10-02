@@ -10,8 +10,8 @@ import Foundation
 import Alamofire
 
 class ShotStore: NSObject {
-    static func getShots(callback: (shots: [Shot]?, error: NSError?) ->()) {
-        request(ShotsRouter.PopularShots()).responseCollection { (response: Response<[Shot], NSError>) in
+    static func getShotsFromPage(page: Int, callback: (shots: [Shot]?, error: NSError?) ->()) {
+        request(ShotsRouter.PopularShots(page: page)).responseCollection { (response: Response<[Shot], NSError>) in
             return callback(shots: response.result.value, error: response.result.error)
         }
     }

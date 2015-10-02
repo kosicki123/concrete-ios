@@ -10,20 +10,21 @@ import Foundation
 import Alamofire
 
 class BaseRouter {
-    static func getRequestAfterSetup(method: Alamofire.Method, path: String) -> NSMutableURLRequest {
+    
+    static func getRequestAfterSetup(method: Alamofire.Method, route: String) -> NSMutableURLRequest {
         let URL = NSURL(string: Constants.BaseURL.rawValue)!
-        let URLRequest  = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        let URLRequest  = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(route))
         URLRequest.HTTPMethod = method.rawValue
         
         return URLRequest
     }
     
     static func getEncodingFor(method: Alamofire.Method) ->Alamofire.ParameterEncoding {
-        switch method {
-//        case .GET:
-//            return Alamofire.ParameterEncoding.URL
-        default:
-            return Alamofire.ParameterEncoding.JSON
-        }
+        //Possibility to use different encodings to different methods
+        return Alamofire.ParameterEncoding.JSON
+    }
+    
+    static func encode(method: Alamofire.Method, route: String, parameters: [String: AnyObject]?) -> (NSMutableURLRequest, NSError?) {
+        return getEncodingFor(method).encode(getRequestAfterSetup(method, route: route), parameters: parameters)
     }
 }

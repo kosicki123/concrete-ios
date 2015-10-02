@@ -11,24 +11,19 @@ import Alamofire
 
 enum ShotsRouter: URLRequestConvertible {
     
-    case PopularShots()
+    //Possibility to add more routes
+    case PopularShots(page: Int)
     
     // MARK: URLRequestConvertible
     
     var URLRequest: NSMutableURLRequest {
-        let (method, path, parameters): (Alamofire.Method, String, [String: AnyObject]?) = {
-            var perPage = 20
+        let (method, route, parameters): (Alamofire.Method, String, [String: AnyObject]?) = {
             switch self {
-            case .PopularShots():
-                if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-                    perPage = 50
-                }
-                
-                return (.GET, Constants.PopularShotsPath.rawValue, nil)
+                case .PopularShots(let page):
+                return (.GET, Constants.PopularShotsPath.rawValue, ["page": page])
             }
         }()
         
-        let encoding = BaseRouter.getEncodingFor(method)
-        return encoding.encode(BaseRouter.getRequestAfterSetup(method, path: path), parameters: parameters).0
+        return BaseRouter.encode(method, route: route, parameters: parameters).0
     }
 }

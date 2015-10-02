@@ -12,17 +12,18 @@ class ShotListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
 
     var shotList: [Shot] = []
-
+    var index = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         requestData()
     }
     
     func requestData() {
-        ShotStore.getShots { (shots, error) -> () in
+        ShotStore.getShotsFromPage(index, callback: { (shots, error) -> () in
             print(error)
             print(shots)
-        }
+        })
     }
 }
 
