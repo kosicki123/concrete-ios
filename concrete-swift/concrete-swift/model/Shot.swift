@@ -14,6 +14,7 @@ final class Shot: ResponseObjectSerializable, ResponseCollectionSerializable, Cu
     var desc: String?
     var likesCount: Int?
     var commentsCount: Int?
+    var viewsCount: Int?
     var imageUrl: String?
     var player: Player
     
@@ -23,6 +24,7 @@ final class Shot: ResponseObjectSerializable, ResponseCollectionSerializable, Cu
         desc = representation.valueForKeyPath("description") as? String
         likesCount = representation.valueForKeyPath("likes_count") as? Int
         commentsCount = representation.valueForKeyPath("comments_count") as? Int
+        viewsCount = representation.valueForKeyPath("views_count") as? Int
         imageUrl = representation.valueForKeyPath("image_url") as? String
         player = Player(response:response, representation: representation.valueForKeyPath("player")!)!
     }
@@ -36,6 +38,6 @@ final class Shot: ResponseObjectSerializable, ResponseCollectionSerializable, Cu
     }
     
     var description: String {
-        return "Shot id = \(self.id), title = \(self.title), description = \(self.desc), likesCount = \(self.likesCount), commentsCount = \(self.commentsCount), imageUrl = \(self.imageUrl), player = \(self.player)"
+        return "Shot id = \(self.id), title = \(self.title), description = \(self.desc), likesCount = \(self.likesCount), commentsCount = \(self.commentsCount), viewsCount = \(self.viewsCount), imageUrl = \(self.imageUrl), player = \(self.player)"
     }
 }

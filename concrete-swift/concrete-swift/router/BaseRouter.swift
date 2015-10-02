@@ -21,7 +21,10 @@ class BaseRouter {
     
     static func getEncodingFor(method: Alamofire.Method) ->Alamofire.ParameterEncoding {
         //Possibility to use different encodings to different methods
-        return Alamofire.ParameterEncoding.JSON
+        switch method {
+        default:
+            return Alamofire.ParameterEncoding.URL
+        }
     }
     
     static func encode(method: Alamofire.Method, route: String, parameters: [String: AnyObject]?) -> (NSMutableURLRequest, NSError?) {

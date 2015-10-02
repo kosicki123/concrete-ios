@@ -9,10 +9,16 @@
 import Foundation
 import Alamofire
 
+protocol ShotDelegate {
+    func didFoundShots(shots: [Shot]?);
+}
+
 class ShotStore: NSObject {
-    static func getShotsFromPage(page: Int, callback: (shots: [Shot]?, error: NSError?) ->()) {
-        request(ShotsRouter.PopularShots(page: page)).responseCollection { (response: Response<[Shot], NSError>) in
-            return callback(shots: response.result.value, error: response.result.error)
+    static func getShotsFromPage(shotProtocol: ShotDelegate, page: Int)/* ->())*/ {
+        request(ShotsRouter.PopularShots(page: page)).responseCollection { (response: Response<[Shot], NSError>) in   
+            print(response)
+            shotProtocol.didFoundShots(response.result.value)
+//            return callback(shots: response.result.value, error: response.result.error)
         }
     }
 }
